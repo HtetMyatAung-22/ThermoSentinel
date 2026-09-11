@@ -1,0 +1,13 @@
+field,unit,priority,description
+timestamp,ISO 8601 datetime,Required,UTC or local timezone must be explicit
+zone_id,string,Required,Operational zone identifier
+temp_C,°C,Required,Waste or probe temperature
+CO_ppm,ppm,Recommended,Carbon monoxide
+CH4_pct,% v/v,Recommended,Methane
+CO2_pct,% v/v,Recommended,Carbon dioxide
+O2_pct,% v/v,Recommended,Oxygen
+air_temp_C,°C,Required,Ambient temperature
+RH_pct,%,Required,Relative humidity
+rain_mm,mm/interval,Recommended,Rainfall
+wind_ms,m/s,Optional,Wind speed
+thermal_index,0–1,Optional,Thermal-camera normalized anomaly

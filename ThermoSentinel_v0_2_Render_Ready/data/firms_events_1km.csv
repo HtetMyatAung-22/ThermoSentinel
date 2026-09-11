@@ -1,0 +1,4 @@
+﻿event_id,start_date,end_date,calendar_span_days,detection_days,total_viirs_detections,number_of_satellites,satellites,max_frp_MW,mean_frp_MW,max_brightness_ti4_K,max_brightness_ti5_K,minimum_distance_m,night_detected,day_detected,high_confidence_detections,nominal_confidence_detections,low_confidence_detections
+F001,2019-01-23,2019-01-23,1,1,1,1,VIIRS NOAA-20,1.61,1.61,,,659.26,0,1,0,1,0
+F002,2024-03-11,2024-03-11,1,1,2,2,VIIRS NOAA-20; VIIRS S-NPP,13.72,9.485,,,227.97,0,1,1,1,0
+F003,2024-04-13,2024-04-13,1,1,1,1,VIIRS S-NPP,0.84,0.84,,,978.16,1,0,0,1,0

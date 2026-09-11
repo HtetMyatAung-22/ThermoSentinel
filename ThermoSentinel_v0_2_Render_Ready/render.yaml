@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: thermosentinel
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: FIRMS_MAP_KEY
+        sync: false
