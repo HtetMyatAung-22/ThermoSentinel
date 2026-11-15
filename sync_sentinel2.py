@@ -1,5 +1,6 @@
 """ThermoSentinel: dry-run-first, scene-based Sentinel-2 indices sync.
-This script requires credentials from GitHub Actions secrets; never add secrets to a repo.
+Google authentication uses keyless GitHub Actions Workload Identity Federation
+and Application Default Credentials (ADC); no JSON private key needed.
 """
 import datetime as dt
 import json
@@ -21,12 +22,13 @@ DRY_RUN = os.getenv('DRY_RUN', 'true').lower() != 'false'
 
 def initialize_ee():
     project = os.environ['EE_PROJECT_ID']
-    sa = json.loads(os.environ['EE_SERVICE_ACCOUNT_JSON'])
-    # Creates only a temporary in-memory credentials object; no key file on disk.
-    from google.oauth2 import service_account
-    credentials = service_account.Credentials.from_service_account_info(
-        sa, scopes=['https://www.googleapis.com/auth/earthengine',
-                    'https://www.googleapis.com/auth/cloud-platform'])
+    # google-github-actions/auth provides GOOGLE_APPLICATION_CREDENTIALS.
+    # ADC loads the short-lived, federated identity; no private key is stored.
+    import google.auth
+    credentials, _ = google.auth.default(scopes=[
+        'https://www.googleapis.com/auth/earthengine',
+        'https://www.googleapis.com/auth/cloud-platform',
+    ])
     ee.Initialize(credentials=credentials, project=project)
 
 
